@@ -21,15 +21,14 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="images/favicon.png">
 </head>
-
 <body>
+
 	<!-- WRAPPER -->
 	<div id="wrapper">
-
-		<!-- NAVBAR -->
+		<!-- 顶部导航栏-->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
-				<a href="index.html"><img src="assets/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+				<a href="index.html"><img src="images/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
 			</div>
 			<div class="container-fluid">
 				<div class="navbar-btn">
@@ -67,7 +66,7 @@
 							</ul>
 						</li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="images/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
 								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 								<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
@@ -80,17 +79,16 @@
 				</div>
 			</div>
 		</nav>
-		<!-- END NAVBAR -->
-
-		<!-- LEFT SIDEBAR -->
+		<!-- END 顶部导航栏 -->
+		<!--左侧工具栏 -->
 		<div id="sidebar-nav" class="sidebar">
-			<div class="sidebar-scroll">
-				<nav>
-					<ul class="nav">
+			<div class="sidebar-scroll" >
+					<nav>
+					<ul class="nav" id="left_ul">
 							<li><a href="index.html" class=""><i class="fa fa-bar-chart"></i> <span>数据统计</span></a></li>
 						<li>
-							<a href="#device_subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>设备管理</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="device_subPages" class="collapse ">
+							<a href="#device_subPages" data-toggle="collapse" class="collapsed" ><i class="lnr lnr-file-empty"></i> <span>设备管理</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="device_subPages" class="collapse" >
 								<ul class="nav">
 									<li><a href="tables.html" class="">设备列表</a></li>
 									<li><a href="tables.html" class="">绑定管理</a></li>
@@ -99,7 +97,7 @@
 							</div>
 						</li>
 						<li>
-							<a href="#source_subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>资源管理</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#source_subPages" data-toggle="collapse" class="collapsed" ><i class="lnr lnr-file-empty"></i> <span>资源管理</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="source_subPages" class="collapse ">
 								<ul class="nav">
 									<li><a href="tables.html" class="">专辑列表</a></li>
@@ -109,7 +107,7 @@
 							</div>
 						</li>
 						<li>
-								<a href="#user_subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>用户管理</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
+								<a href="#user_subPages" data-toggle="collapse" class="collapsed" ><i class="lnr lnr-file-empty"></i> <span>用户管理</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
 								<div id="user_subPages" class="collapse ">
 									<ul class="nav">
 										<li><a href="tables.html" class="">用户列表</a></li>
@@ -119,7 +117,7 @@
 								</div>
 						</li>
 						<li>
-							<a href="#content_subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-alarm"></i> <span>内容管理</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#content_subPages" data-toggle="collapse" class="collapsed" ><i class="lnr lnr-alarm"></i> <span>内容管理</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="content_subPages" class="collapse ">
 								<ul class="nav">
 									<li><a href="" class="">xxx</a></li>
@@ -129,7 +127,7 @@
 							</div>
 						</li>
 						<li>
-							<a href="#authority_subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>权限管理</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#authority_subPages" data-toggle="collapse" class="collapsed" ><i class="lnr lnr-file-empty"></i> <span>权限管理</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="authority_subPages" class="collapse ">
 								<ul class="nav">
 									<li><a href="" class="">用户权限</a></li>
@@ -139,7 +137,7 @@
 							</div>
 						</li>
 						<li>
-							<a href="#log_subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>日志管理</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#log_subPages" data-toggle="collapse" class="collapsed" ><i class="lnr lnr-file-empty"></i> <span>日志管理</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="log_subPages" class="collapse ">
 								<ul class="nav">
 									<li><a href="" class="">DEBUG-log</a></li>
@@ -152,7 +150,7 @@
 							</div>
 						</li>
 						<li>
-							<a href="#sell_subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>销售管理</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#sell_subPages" data-toggle="collapse" class="collapsed" ><i class="lnr lnr-file-empty"></i> <span>销售管理</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="sell_subPages" class="collapse ">
 								<ul class="nav">
 									<li><a href="" class="">销售记录</a></li>
@@ -161,16 +159,16 @@
 								</ul>
 							</div>
 						</li>
-						<li><a href="icons.html" class=""><i class="lnr lnr-linearicons"></i> <span>关于我们</span></a></li>
+						<li><a href="" class=""><i class="lnr lnr-linearicons"></i> <span>关于我们</span></a></li>
 					</ul>
-				</nav>
+					</nav>
 			</div>
 		</div>
-		<!-- END LEFT SIDEBAR -->
+		<!-- END 左侧工具栏 -->
 
-		<!-- MAIN -->
+		<!-- 中心区 -->
 		<div class="main">
-			<!-- MAIN CONTENT -->
+			<!-- 中心内容区 -->
 			<div class="main-content">
 				<div class="container-fluid">
 					<!-- OVERVIEW -->
@@ -488,9 +486,9 @@
 					</div>
 				</div>
 			</div>
-			<!-- END MAIN CONTENT -->
+			<!-- END 中心内容区 -->
 		</div>
-		<!-- END MAIN -->
+		<!-- END 中心区 -->
 
 		<div class="clearfix"></div>
 
@@ -627,7 +625,15 @@
 
 	});
 	</script>
-
+	<script>
+		var currindex=0;
+		var $leftul=$('#left_ul>li');
+		$leftul.click(function () {
+			$($leftul.eq(currindex).children('.collapse.in')).collapse('hide');
+			$($leftul.eq(currindex).children('.active')).removeClass("active");
+			 currindex=$(this).index();
+		});
+	</script>
 </body>
 
 </html>
