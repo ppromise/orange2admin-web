@@ -12,13 +12,14 @@
 	<link rel="stylesheet" href="vendor/linearicons/style.css">
 	<!-- MAIN CSS（自身CSS） -->
 	<link rel="stylesheet" href="css/main.css">
-
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="images/favicon.png">
-
 	<!--fev-info-->
 	<link rel="stylesheet" type="text/css" href="css/dev-info.css">
+	<!--fev-info 分页-->
+	<link rel="stylesheet" href="css/dev-info_myPagination.css">
+	<script src="js/dev-info_myPagination.js"></script>
 </head>
 <body>
 	<!-- WRAPPER -->
@@ -130,6 +131,9 @@
 										<div style="clear:both;"></div>
 									</div>
 									end 页码-->
+									<!--页码-->
+									<div id="pagination" class="pagination"></div>
+
 
 								</div>
 							</div>
@@ -151,7 +155,25 @@
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 	<script src="js/moudle.js"></script>
-
+	<!-- Javascript 分页 -->
+	<script>
+		window.onload = function () {
+			new myPagination({
+				id: 'pagination',
+				curPage:1, //初始页码
+				pageTotal: 50, //总页数
+				pageAmount: 10,  //每页多少条
+				dataTotal: 500, //总共多少条数据
+				pageSize: 5, //可选,分页个数
+				showPageTotalFlag:true, //是否显示数据统计
+				showSkipInputFlag:true, //是否支持跳转
+				getPage: function (page) {
+					//获取当前页数
+					console.log(page);
+				}
+			})
+		}
+	</script>
 </body>
 
 </html>
