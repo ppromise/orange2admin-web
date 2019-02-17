@@ -1,0 +1,76 @@
+.shanchu{
+    width: 10px;
+    float: left;
+}
+.xiugai{
+    width: 10px;
+    margin-left: 28px;
+    float: left;
+}
+/*分页开始
+.paging{ width:610px;margin:30px auto 0;}
+.page{
+    width: 300px;
+    float: right;
+}
+.pag-left{ margin-right:15px;}
+.pag-left .about{
+    display:inline-block;
+    width:41px;
+    height:35px;
+    line-height:35px;
+    text-align:center;
+    color: #fff;!important;
+    background:#151515;
+    font-size:23px;}
+.pag-left .left-m{
+    height:33px;
+    padding:1px;
+    background:#151515;
+}
+.pag-left .left-m li{
+    float:left;
+    width:39px;
+    height:33px;
+    line-height:33px;
+    text-align:center;
+    background:#fff;
+}
+.pag-left .left-m li:hover{
+    background:#151515;
+}
+.pag-left .left-m li:hover a{
+    color:#fff;
+}
+.pag-left .left-m .current{
+    background:#151515;
+}
+.pag-left .left-m .current a{
+    color:#fff;
+}
+.pag-left .left-m li a{
+    display:block;
+    font-size:14px;
+    color:#000;
+}
+.pag-right .jump-page{
+    font-size:14px;
+    color:#000;
+    margin-right:10px;}
+.pag-right .jump-page input{
+    border:none;
+    width:48px;
+    height:33px;
+    border:1px solid #151515;
+    margin:0 10px;
+    padding:0 5px;
+}
+.pag-right button{
+    border:none;
+    width:53px;
+    height:35px;
+    background:#151515;
+    color:#fff;
+    font-size:14px;
+    cursor:pointer;
+}*/

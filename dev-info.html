@@ -16,6 +16,9 @@
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="images/favicon.png">
+
+	<!--fev-info-->
+	<link rel="stylesheet" type="text/css" href="css/dev-info.css">
 </head>
 <body>
 	<!-- WRAPPER -->
@@ -33,45 +36,105 @@
 					<h3 class="page-title">Tables</h3>
 					<div class="row">
 						<div class="col-md-12">
-							<!-- TABLE HOVER -->
+							<!--显示xx条-->
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title" style="font-size: small">显示
+										<select class="select-num" >
+											<option>5</option>
+											<option>10</option>
+											<option>15</option>
+											<option>20</option>
+										</select>条
+									</h3>
+								</div>
+							</div>
+							<!--end 显示xx条-->
+							<!-- 设备列表 TABLE HOVER -->
 							<div class="panel">
 								<div class="panel-heading">
 									<h3 class="panel-title">设备列表</h3>
 								</div>
+
 								<div class="panel-body">
 									<table class="table table-hover">
 										<thead>
 										<tr>
-											<th>#</th>
-											<th>First Name</th>
-											<th>Last Name</th>
-											<th>Username</th>
+											<th><input type="checkbox" class="allchoose">全选</th>
+											<th>设备MAC</th>
+											<th>设备ID</th>
+											<th>所属批次</th>
+											<th>固件版本</th>
+											<th>绑定微信</th>
+											<th>授权时间</th>
+											<th>操作</th>
 										</tr>
 										</thead>
 										<tbody>
 										<tr>
+											<td><input type="checkbox" class="choose01"></td>
+											<td>001</td>
+											<td>12232323</td>
 											<td>1</td>
+											<td>v0.0.1.1</td>
 											<td>Steve</td>
 											<td>Jobs</td>
-											<td>@steve</td>
+											<td><div class="shanchu"><i class="lnr lnr-trash"></i></div><div class="xiugai"><i class="lnr lnr-pencil"></i></div></td>
 										</tr>
 										<tr>
+											<td><input type="checkbox" class="choose01"></td>
 											<td>2</td>
 											<td>Simon</td>
 											<td>Philips</td>
 											<td>@simon</td>
+											<td>Steve</td>
+											<td>Jobs</td>
+											<td><div class="shanchu"><i class="lnr lnr-trash"></i></div><div class="xiugai"><i class="lnr lnr-pencil"></i></div></td>
 										</tr>
 										<tr>
+											<td><input type="checkbox" class="choose01"></td>
 											<td>3</td>
 											<td>Jane</td>
 											<td>Doe</td>
 											<td>@jane</td>
+											<td>Steve</td>
+											<td>Jobs</td>
+											<td><div class="shanchu"><i class="lnr lnr-trash"></i></div><div class="xiugai"><i class="lnr lnr-pencil"></i></div></td>
 										</tr>
 										</tbody>
 									</table>
+									<h3 class="panel-title" style="font-size: small">显示1到5，共5条</h3>
+									<!--页码-->
+									<!--
+									<div class="page">
+										<div class="pag-left f-l">
+											<a href="#" class="about left-r f-l"><</a>
+											<ul class="left-m f-l">
+												<li><a href="#">1</a></li>
+												<li class="current"><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">...</a></li>
+												<li><a href="#">5</a></li>
+												<div style="clear:both;"></div>
+											</ul>
+											<a href="#" class="about left-l f-l">></a>
+											<div style="clear:both;"></div>
+										</div>
+										<div class="pag-right f-l">
+											<div class="jump-page f-l">
+												到第<input type="text" />页
+											</div>
+											<button class="f-l">确定</button>
+											<div style="clear:both;"></div>
+										</div>
+										<div style="clear:both;"></div>
+									</div>
+									end 页码-->
+
 								</div>
 							</div>
-							<!-- END TABLE HOVER -->
+							<!-- END 设备列表 TABLE HOVER -->
+
 						</div>
 					</div>
 				</div>
