@@ -1,3 +1,4 @@
+/*分页js begin*/
 function myPagination(_ref) {
     var pageSize = _ref.pageSize,
         pageTotal = _ref.pageTotal,
@@ -198,3 +199,23 @@ myPagination.prototype = {
         this.ul.appendChild(li3);
     }
 };
+/*分页js end*/
+
+/*全选（jqurey） begin*/
+$(function () {
+    $(".allchoose").click(function () {
+        if ($(this).prop('checked')){
+            $(".choose01").each(function () {
+                $(this).prop('checked',true);
+            })
+        }
+        else {
+            $(".choose01").each(function () {
+                $(this).prop('checked',false);
+            })
+        }
+    })
+
+
+})
+/*全选（jqurey） end*/
