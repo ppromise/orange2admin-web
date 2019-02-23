@@ -200,9 +200,9 @@ myPagination.prototype = {
     }
 };
 /*分页js end*/
-
-/*全选（jqurey） begin*/
+/*jqurey实现页面效果*/
 $(function () {
+    /*全选（jqurey） begin*/
     $(".allchoose").click(function () {
         if ($(this).prop('checked')){
             $(".choose01").each(function () {
@@ -215,7 +215,13 @@ $(function () {
             })
         }
     })
+    /*全选（jqurey） end*/
+    /*删除 begin*/
+    $(".shanchu").click(function () {
+        $(this).parent().parent().remove();
+    })
+    /*删除 end*/
 
 
 })
-/*全选（jqurey） end*/
+
