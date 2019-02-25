@@ -17,10 +17,8 @@
 	<link rel="icon" type="image/png" sizes="96x96" href="images/favicon.png">
 	<!--fev-info-->
 	<link rel="stylesheet" type="text/css" href="css/dev-info.css">
-	<script src="js/jquery-3.2.1.js"></script>
 	<!--fev-info 分页-->
 	<link rel="stylesheet" href="css/dev-info_myPagination.css">
-	<script src="js/dev-info.js"></script>
 </head>
 <body>
 	<!-- WRAPPER -->
@@ -73,7 +71,7 @@
 											<th>操作</th>
 										</tr>
 										</thead>
-										<tbody>
+										<tbody id="listbody">
 										<tr>
 											<td><input type="checkbox" class="choose01"></td>
 											<td>001</td>
@@ -137,6 +135,8 @@
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 	<script src="js/moudle.js"></script>
+	<!--<script src="js/jquery-3.2.1.js"></script>-->
+	<script src="js/dev-info.js"></script>
 	<!-- Javascript 分页 -->
 	<script>
 		window.onload = function () {
@@ -156,6 +156,57 @@
 			})
 		}
 	</script>
+
+	<script>
+		/*ajax请求响应*/   /*测试ajax获取json*/
+		/*var xhr = new XMLHttpRequest()
+		xhr.open('GET','getBatchBasicInfo.json')
+		xhr.send(null)
+		xhr.onreadystatechange=function () {
+			if (this.readyState !== 4)return
+			console.log(this.responseText)
+		}*/
+	</script>
+
+	<!--ajax获取json-->
+	<script>
+		$(function () {
+			$.ajax({
+				type:"get",//请求方式
+				url:"http://106.12.20.45:8081/tcms/device/getBatchBasicInfo",//地址
+				async: true,//是否为异步请求，ture为异步请求，false为同步请求
+				data:1,
+				dataType:"json",//数据类型可以为 text xml json  script  jsonp
+				success:function (result) {//返回的参数就是 action里面所有的有get和set方法的参数
+					//清空数据
+					$("<tbody>").empty();
+					//返回的数据用data.rows获取内容
+					addBox(result);
+				}
+			});
+		});
+		function addBox(result) {
+			//result是一个集合,所以需要先遍历
+			$.each(result,function (index,item) {
+				$("#listbody").append(
+						"<tr>"+
+						"<td>"+"<input type='checkbox' class='choose01'>"+"</td>"+
+						"<td>"+item['albumId']+"</td>"+
+						"<td>"+item['albumName']+"</td>"+
+						"<td>"+item['programId']+"</td>"+
+						"<td>"+item['programName']+"</td>"+
+						"<td>"+item['wordId']+"</td>"+
+						"<td>"+item['wordName']+"</td>"+
+						"<td>"+
+							"<div class='shanchu'>"+"<i class='lnr lnr-trash'>"+"</i>"+"</div>"+
+							"<div class='xiugai'>"+"<i class='lnr lnr-pencil'>"+"</i>"+"</div>"+
+						"</td>"+
+						"</tr>"
+				);
+			});
+		}
+	</script>
+
 </body>
 
 </html>
