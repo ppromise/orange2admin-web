@@ -166,7 +166,7 @@ html.fullscreen-bg #wrapper {
     background-color: #f8f8f8; }
   .navbar-default .brand {
     float: left;
-    padding: 30px 39px;
+    padding: 10px 30px ;
     background-color: #fff; }
   @media screen and (max-width: 1024px) {
     .navbar-default .brand {
@@ -347,16 +347,16 @@ ul.notifications > li {
 /********************
  * SIDEBAR NAVIGATION
  ********************/
-.sidebar {
+    .sidebar {
   z-index: 9; }
-  .sidebar .nav > li > a {
+    .sidebar .nav > li > a {
     padding: 18px 30px;
     color: #AEB7C2;
     border-left: 5px solid transparent; }
     .sidebar .nav > li > a:hover, .sidebar .nav > li > a:focus, .sidebar .nav > li > a.active {
       color: #fff;
       background-color: transparent; }
-      .sidebar .nav > li > a:hover i, .sidebar .nav > li > a:focus i, .sidebar .nav > li > a.active i {
+    .sidebar .nav > li > a:hover i, .sidebar .nav > li > a:focus i, .sidebar .nav > li > a.active i {
         color: #00AAFF; }
     .sidebar .nav > li > a:focus, .sidebar .nav > li > a.active {
       background-color: #252c35;
@@ -389,11 +389,11 @@ ul.notifications > li {
     .sidebar .nav > li > a .badge {
       font-weight: 400;
       background-color: #F9354C; }
-  .sidebar .nav {
+    .sidebar .nav {
     /* submenu */ }
     .sidebar .nav i {
       margin-right: 10px;
-      font-size: 18px; }
+      font-size: 20px; }
     .sidebar .nav span {
       -webkit-transition: all 0.3s ease-in-out;
       -moz-transition: all 0.3s ease-in-out;
@@ -404,14 +404,14 @@ ul.notifications > li {
       top: -2px; }
     .sidebar .nav .nav {
       background-color: #252c35; }
-      .sidebar .nav .nav > li > a {
+    .sidebar .nav .nav > li > a {
         padding-left: 60px;
-        padding-top: 10px;
-        padding-bottom: 10px; }
-        .sidebar .nav .nav > li > a:focus, .sidebar .nav .nav > li > a.active {
+        padding-top: 15px;
+        padding-bottom: 15px; }
+    .sidebar .nav .nav > li > a:focus, .sidebar .nav .nav > li > a.active {
           background-color: transparent;
           border-left-color: transparent; }
-        .sidebar .nav .nav > li > a.active a {
+    .sidebar .nav .nav > li > a.active a {
           color: #fff; }
 
 /********************
@@ -1751,5 +1751,7 @@ ul.activity-timeline > li {
   .project-table > tbody > tr > td .avatar {
     width: 22px;
     border: 1px solid #CCC; }
-
+.panel-heading-btn{
+  float: right;
+}
 /*# sourceMappingURL=main.css.map */
