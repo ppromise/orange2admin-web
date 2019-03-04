@@ -13,7 +13,7 @@ function build_pageNav(pageInfoData,tableName) {
     let ul=$("<ul></ul>").addClass("pagination");
     let firstPage =$("<li></li>").append($("<a></a>").append("首页").attr("href","#"));
     let prePage =$("<li></li>").append($("<a></a>").append("&laquo;"));
-    if(pageInfoData["hasPreviousPage"]==false){
+    if(pageInfoData["hasPreviousPage"]===false){
         firstPage.addClass("disabled");
         prePage.addClass("disabled");
     }else {
@@ -52,7 +52,7 @@ function build_pageNav(pageInfoData,tableName) {
     }
     let lastPage=$("<li></li>").append($("<a></a>").append("末页").attr("href","#"));
     let nextPage=$("<li></li>").append($("<a></a>").append("&raquo;"));
-    if(pageInfoData["hasNextPage"]==false){
+    if(pageInfoData["hasNextPage"]===false){
         lastPage.addClass("disabled");
         nextPage.addClass("disabled");
     }else{
@@ -92,7 +92,7 @@ function build_pageNav(pageInfoData,tableName) {
     ul.append(firstPage).append(prePage);
     $.each((pageInfoData)["navigatepageNums"],function (number,value) {
         let li=$("<li></li>").append($("<a></a>").append(value));
-        if((pageInfoData)["pageNum"]==value){
+        if((pageInfoData)["pageNum"]===value){
             li.addClass("active");
         }
         li.on('click',function () {
@@ -117,6 +117,7 @@ function build_pageNav(pageInfoData,tableName) {
     let nav=$("<nav></nav>").append(ul);
     nav.appendTo($("#page_nav"));
 }
+
 /*构造导航信息*/
 function build_pageInfo(pageInfoData) {
     let pageNum=pageInfoData["pageNum"];
@@ -124,27 +125,26 @@ function build_pageInfo(pageInfoData) {
     let total=pageInfoData["total"];
     $("#page_info").empty().append("当前第 "+pageNum+" 页,总共 "+pages+" 页,总共 "+total+" 条记录");
 }
+function checkUndefined(object) {
+    for(let character in object){
+        if(object[character]===undefined){
+            object[character]=null;
+        }
+    }
+}
 /*常量*/
 const API="http://106.12.20.45:8081/tcms/";
 
-
-
 /*获取表全部数据*/
 function build_devInfo(pagenum,pagesize) {
-    let page={
-        pagenum:1,
-        pagesize:5,
-    };
-    if(pagenum!==undefined){
-        page.pagenum=pagenum;
-    }
-    if(pagesize!==undefined){
-        page.pagesize=pagesize;
-    }
+    let jsonObj={};
+    jsonObj.pagenum=pagenum;
+    jsonObj.pagesize=pagesize;
+    checkUndefined(jsonObj);
     $.ajax({
         type:"GET",
         url:API+"device/getDevBasicInfo",
-        data:"pagenum="+page.pagenum+"&pagesize="+page.pagesize,
+        data:JSON.stringify(jsonObj),
         success:function (result){
             if(result.code === "101"){
                 build_devInfo_table(((result.data)["allDeviceBaseInfo"])["list"]);
@@ -157,6 +157,7 @@ function build_devInfo(pagenum,pagesize) {
         }
     })
 }
+
 function build_devInfo_table(tableData) {
     $("#devInfo_table tbody").empty();
     $.each(tableData,function (index,obj) {
@@ -186,20 +187,14 @@ function build_devInfo_table(tableData) {
 
 
 function build_devCustom(pagenum,pagesize) {
-    let page={
-        pagenum:1,
-        pagesize:5,
-    };
-    if(pagenum!==undefined){
-        page.pagenum=pagenum;
-    }
-    if(pagesize!==undefined){
-        page.pagesize=pagesize;
-    }
+    let jsonObj={};
+    jsonObj.pagenum=pagenum;
+    jsonObj.pagesize=pagesize;
+    checkUndefined(jsonObj);
     $.ajax({
         type:"GET",
         url:API+"device/getDevCustomizedInfo",
-        data:"pagenum="+page.pagenum+"&pagesize="+page.pagesize,
+        data:JSON.stringify(jsonObj),
         success:function (result){
             if(result.code === "101"){
                 build_devCustom_table(((result.data)["allDevCustomizedInfo"])["list"]);
@@ -243,20 +238,14 @@ function build_devCustom_table(tableData) {
     });
 }
 function build_devBatch(pagenum,pagesize) {
-    let page={
-        pagenum:1,
-        pagesize:5,
-    };
-    if(pagenum!==undefined){
-        page.pagenum=pagenum;
-    }
-    if(pagesize!==undefined){
-        page.pagesize=pagesize;
-    }
+    let jsonObj={};
+    jsonObj.pagenum=pagenum;
+    jsonObj.pagesize=pagesize;
+    checkUndefined(jsonObj);
     $.ajax({
         type:"GET",
         url:API+"device/getBatchBasicInfo",
-        data:"pagenum="+page.pagenum+"&pagesize="+page.pagesize,
+        data:JSON.stringify(jsonObj),
         success:function (result){
             if(result.code === "101"){
                 build_devBatch_table(((result.data)["allBatchBasicInfo"])["list"]);
@@ -297,20 +286,14 @@ function build_devBatch_table(tableData) {
     });
 }
 function build_devFavorite(pagenum,pagesize) {
-    let page={
-        pagenum:1,
-        pagesize:5,
-    };
-    if(pagenum!==undefined){
-        page.pagenum=pagenum;
-    }
-    if(pagesize!==undefined){
-        page.pagesize=pagesize;
-    }
+    let jsonObj={};
+    jsonObj.pagenum=pagenum;
+    jsonObj.pagesize=pagesize;
+    checkUndefined(jsonObj);
     $.ajax({
         type:"GET",
         url:API+"device/getDevFavouriteInfo",
-        data:"pagenum="+page.pagenum+"&pagesize="+page.pagesize,
+        data:JSON.stringify(jsonObj),
         success:function (result){
             if(result.code === "101"){
                 build_devFavorite_table(((result.data)["allBatchBasicInfo"])["list"]);
