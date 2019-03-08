@@ -20,32 +20,32 @@ function build_pageNav(pageInfoData,tableName) {
         firstPage.on('click',function () {
             switch (tableName) {
                 case "devInfo":
-                    build_devInfo(1);
+                    build_devInfo(1,pageSize);
                     break;
                 case "devCustom":
-                    build_devCustom(1);
+                    build_devCustom(1,pageSize);
                     break;
                 case "devBatch":
-                    build_devBatch(1);
+                    build_devBatch(1,pageSize);
                     break;
                 case "devFavorite":
-                    build_devFavorite(1);
+                    build_devFavorite(1,pageSize);
                     break;
             }
         });
         prePage.on('click',function () {
             switch (tableName) {
                 case "devInfo":
-                    build_devInfo(pageInfoData["pageNum"]-1);
+                    build_devInfo(pageInfoData["pageNum"]-1,pageSize);
                     break;
                 case "devCustom":
-                    build_devCustom(pageInfoData["pageNum"]-1);
+                    build_devCustom(pageInfoData["pageNum"]-1,pageSize);
                     break;
                 case "devBatch":
-                    build_devBatch(pageInfoData["pageNum"]-1);
+                    build_devBatch(pageInfoData["pageNum"]-1,pageSize);
                     break;
                 case "devFavorite":
-                    build_devFavorite(pageInfoData["pageNum"]-1);
+                    build_devFavorite(pageInfoData["pageNum"]-1,pageSize);
                     break;
             }
         });
@@ -59,32 +59,32 @@ function build_pageNav(pageInfoData,tableName) {
         lastPage.on('click',function () {
             switch (tableName) {
                 case "devInfo":
-                    build_devInfo(pageInfoData["pages"]);
+                    build_devInfo(pageInfoData["pages"],pageSize);
                     break;
                 case "devCustom":
-                    build_devCustom(pageInfoData["pages"]);
+                    build_devCustom(pageInfoData["pages"],pageSize);
                     break;
                 case "devBatch":
-                    build_devBatch(pageInfoData["pages"]);
+                    build_devBatch(pageInfoData["pages"],pageSize);
                     break;
                 case "devFavorite":
-                    build_devFavorite(pageInfoData["pages"]);
+                    build_devFavorite(pageInfoData["pages"],pageSize);
                     break;
             }
         });
         nextPage.on('click',function () {
             switch (tableName) {
                 case "devInfo":
-                    build_devInfo(pageInfoData["pageNum"]+1);
+                    build_devInfo(pageInfoData["pageNum"]+1,pageSize);
                     break;
                 case "devCustom":
-                    build_devCustom(pageInfoData["pageNum"]+1);
+                    build_devCustom(pageInfoData["pageNum"]+1,pageSize);
                     break;
                 case "devBatch":
-                    build_devBatch(pageInfoData["pageNum"]+1);
+                    build_devBatch(pageInfoData["pageNum"]+1,pageSize);
                     break;
                 case "devFavorite":
-                    build_devFavorite(pageInfoData["pageNum"]+1);
+                    build_devFavorite(pageInfoData["pageNum"]+1,pageSize);
                     break;
             }
         });
@@ -98,16 +98,16 @@ function build_pageNav(pageInfoData,tableName) {
         li.on('click',function () {
             switch (tableName) {
                 case "devInfo":
-                    build_devInfo(value);
+                    build_devInfo(value,pageSize);
                     break;
                 case "devCustom":
-                    build_devCustom(value);
+                    build_devCustom(value,pageSize);
                     break;
                 case "devBatch":
-                    build_devBatch(value);
+                    build_devBatch(value,pageSize);
                     break;
                 case "devFavorite":
-                    build_devFavorite(value);
+                    build_devFavorite(value,pageSize);
                     break;
             }
         });
@@ -125,12 +125,24 @@ function build_pageInfo(pageInfoData) {
     let total=pageInfoData["total"];
     $("#page_info").empty().append("当前第 "+pageNum+" 页,总共 "+pages+" 页,总共 "+total+" 条记录");
 }
-function checkUndefined(object) {
-    for(let character in object){
-        if(object[character]===undefined){
-            object[character]=null;
-        }
+
+function setpageSize(number,tableName) {
+    pageSize=number;
+    switch (tableName) {
+        case "devInfo":
+            build_devInfo(pageNum,number);
+            break;
+        case "devCustom":
+            build_devCustom(pageNum,number);
+            break;
+        case "devBatch":
+            build_devBatch(pageNum,number);
+            break;
+        case "devFavorite":
+            build_devFavorite(pageNum,number);
+            break;
     }
+    build_devCustom(pageNum,pageSize);
 }
 /*常量*/
 const API="http://106.12.20.45:8081/tcms/";
@@ -138,18 +150,19 @@ const API="http://106.12.20.45:8081/tcms/";
 /*获取表全部数据*/
 function build_devInfo(pagenum,pagesize) {
     let jsonObj={};
-    jsonObj.pagenum=pagenum;
-    jsonObj.pagesize=pagesize;
-    checkUndefined(jsonObj);
+    jsonObj.pageNum=pagenum;
+    jsonObj.pageSize=pagesize;
     $.ajax({
-        type:"GET",
-        url:API+"device/getDevBasicInfo",
-        data:JSON.stringify(jsonObj),
+        type:"get",
+        dataType:"json",
+        // url:API+"device/getDevBasicInfo",
+        url:"http://localhost:8080/tcms/device/DevBasicInfo",
+        data:jsonObj,
         success:function (result){
             if(result.code === "101"){
-                build_devInfo_table(((result.data)["allDeviceBaseInfo"])["list"]);
-                build_pageInfo((result.data)["allDeviceBaseInfo"]);
-                build_pageNav((result.data)["allDeviceBaseInfo"],"devInfo");
+                build_devInfo_table(((result.data)["allDeviceBasicInfo"])["list"]);
+                build_pageInfo((result.data)["allDeviceBasicInfo"]);
+                build_pageNav((result.data)["allDeviceBasicInfo"],"devInfo");
             }
             if(result.code === "102"){
 
@@ -188,13 +201,14 @@ function build_devInfo_table(tableData) {
 
 function build_devCustom(pagenum,pagesize) {
     let jsonObj={};
-    jsonObj.pagenum=pagenum;
-    jsonObj.pagesize=pagesize;
-    checkUndefined(jsonObj);
+    jsonObj.pageNum=pagenum;
+    jsonObj.pageSize=pagesize;
     $.ajax({
-        type:"GET",
-        url:API+"device/getDevCustomizedInfo",
-        data:JSON.stringify(jsonObj),
+        type:"get",
+        dataType:"json",
+        url:"http://localhost:8080/tcms/device/DevCustomizedInfo",
+        data:jsonObj,
+        //url:API+"device/getDevCustomizedInfo",
         success:function (result){
             if(result.code === "101"){
                 build_devCustom_table(((result.data)["allDevCustomizedInfo"])["list"]);
@@ -239,13 +253,14 @@ function build_devCustom_table(tableData) {
 }
 function build_devBatch(pagenum,pagesize) {
     let jsonObj={};
-    jsonObj.pagenum=pagenum;
-    jsonObj.pagesize=pagesize;
-    checkUndefined(jsonObj);
+    jsonObj.pageNum=pagenum;
+    jsonObj.pageSize=pagesize;
     $.ajax({
-        type:"GET",
-        url:API+"device/getBatchBasicInfo",
-        data:JSON.stringify(jsonObj),
+        type:"get",
+        dataType:"json",
+        url:"http://localhost:8080/tcms/device/BatchBasicInfo",
+        data:jsonObj,
+        //url:API+"device/BatchBasicInfo",
         success:function (result){
             if(result.code === "101"){
                 build_devBatch_table(((result.data)["allBatchBasicInfo"])["list"]);
@@ -285,7 +300,7 @@ function build_devBatch_table(tableData) {
 
     });
 }
-function build_devFavorite(pagenum,pagesize) {
+function build_devFavorite() {
     let jsonObj={};
     jsonObj.pagenum=pagenum;
     jsonObj.pagesize=pagesize;
