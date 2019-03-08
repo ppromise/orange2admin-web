@@ -155,8 +155,8 @@ function build_devInfo(pagenum,pagesize) {
     $.ajax({
         type:"get",
         dataType:"json",
-        // url:API+"device/getDevBasicInfo",
-        url:"http://localhost:8080/tcms/device/DevBasicInfo",
+        url:API+"device/DevBasicInfo",
+        //url:"http://localhost:8080/tcms/device/DevBasicInfo",
         data:jsonObj,
         success:function (result){
             if(result.code === "101"){
@@ -206,9 +206,9 @@ function build_devCustom(pagenum,pagesize) {
     $.ajax({
         type:"get",
         dataType:"json",
-        url:"http://localhost:8080/tcms/device/DevCustomizedInfo",
+        //url:"http://localhost:8080/tcms/device/DevCustomizedInfo",
         data:jsonObj,
-        //url:API+"device/getDevCustomizedInfo",
+        url:API+"device/DevCustomizedInfo",
         success:function (result){
             if(result.code === "101"){
                 build_devCustom_table(((result.data)["allDevCustomizedInfo"])["list"]);
@@ -258,9 +258,9 @@ function build_devBatch(pagenum,pagesize) {
     $.ajax({
         type:"get",
         dataType:"json",
-        url:"http://localhost:8080/tcms/device/BatchBasicInfo",
+        // url:"http://localhost:8080/tcms/device/BatchBasicInfo",
         data:jsonObj,
-        //url:API+"device/BatchBasicInfo",
+        url:API+"device/BatchBasicInfo",
         success:function (result){
             if(result.code === "101"){
                 build_devBatch_table(((result.data)["allBatchBasicInfo"])["list"]);
@@ -307,7 +307,7 @@ function build_devFavorite() {
     checkUndefined(jsonObj);
     $.ajax({
         type:"GET",
-        url:API+"device/getDevFavouriteInfo",
+        url:API+"device/DevFavouriteInfo",
         data:JSON.stringify(jsonObj),
         success:function (result){
             if(result.code === "101"){
