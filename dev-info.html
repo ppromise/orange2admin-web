@@ -44,13 +44,16 @@
 			<!-- END MAIN CONTENT -->
 		</div>
 		<script>
-/*面板缩小、关闭*/
-$("#collapse").on("click",function (e) {
-    e.preventDefault();
-$(this).closest(".panel").find(".panel-body").slideToggle();
-});
-$("#close").on("click",function (e) {
-   e.preventDefault();
-   $(this).closest(".panel").remove();
-});
+	/*面板缩小、关闭*/
+	$("#collapse").on("click",function (e) {
+		e.preventDefault();
+		$(this).closest(".panel").find(".panel-body").slideToggle();
+	});
+	$("#close").on("click",function (e) {
+		e.preventDefault();
+		$(this).closest(".panel").remove();
+	});
+	$(".allchoose").on("click",function () {
+		$(":checkbox[class=check_item]").prop("checked",$(this).prop("checked"));
+	});
 </script>

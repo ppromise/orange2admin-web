@@ -22,8 +22,8 @@ $("#dev_custom").on("click",function () {
     build_devCustom(pageNum,pageSize);
 });
 $("#dev_favorite").on("click",function () {
-
     load_main("dev-favorite.html");
+
     build_devFavorite(pageNum,pageSize);
 });
 $("#dev_batch").on("click",function () {

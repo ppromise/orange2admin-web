@@ -174,15 +174,15 @@ function build_devInfo(pagenum,pagesize) {
 function build_devInfo_table(tableData) {
     $("#devInfo_table tbody").empty();
     $.each(tableData,function (index,obj) {
-        let choose=$("<td><input type='checkbox'></td>");
+        let choose=$("<td><input type='checkbox' class='check_item'></td>");
         let deviceMac=$("<td></td>").append(obj["deviceMac"]);
         let deviceId=$("<td></td>").append(obj["deviceId"]);
         let batch=$("<td></td>").append(obj["batch"]);
         let version=$("<td></td>").append(obj["version"]);
         let openId=$("<td></td>").append(obj["openId"]);
         let authorizeTime=$("<td></td>").append(obj["authorizeTime"]);
-        let edit=$("<div></div>").css({"width":"28px","float":"left"}).append($("<li></li>").addClass("fa fa-pencil-square-o fa-lg"));
-        let del=$("<div></div>").css({"width":"28px","float":"left"}).append($("<li></li>").addClass("fa fa-trash-o fa-lg"));
+        let edit=$("<div></div>").addClass("editBtn").append($("<li></li>").addClass("fa fa-pencil-square-o fa-lg"));
+        let del=$("<div></div>").addClass("delBtn").append($("<li></li>").addClass("fa fa-trash-o fa-lg"));
         let operation=$("<td></td>").append(edit).append(del);
         $("<tr></tr>").append(choose)
             .append(choose)
@@ -224,7 +224,7 @@ function build_devCustom(pagenum,pagesize) {
 function build_devCustom_table(tableData) {
     $("#devCustom_table tbody").empty();
     $.each(tableData,function (index,obj) {
-        let choose=$("<td><input type='checkbox'></td>");
+        let choose=$("<td><input type='checkbox' class='check_item'></td>");
         let deviceId=$("<td></td>").append(obj["deviceId"]);
         let voice=$("<td></td>").append(obj["voice"]);
         let speed=$("<td></td>").append(obj["speed"]);
@@ -233,8 +233,8 @@ function build_devCustom_table(tableData) {
         let ageRange=$("<td></td>").append(obj["minAge"]+"~"+obj["minAge"]);
         let turnOnLevel=$("<td></td>").append(obj["turnOnLevel"]);
         let turnOnPlay=$("<td></td>").append(obj["turnOnPlay"]);
-        let edit=$("<div></div>").css({"width":"28px","float":"left"}).append($("<li></li>").addClass("fa fa-pencil-square-o fa-lg"));
-        let del=$("<div></div>").css({"width":"28px","float":"left"}).append($("<li></li>").addClass("fa fa-trash-o fa-lg"));
+        let edit=$("<div></div>").addClass("editBtn").append($("<li></li>").addClass("fa fa-pencil-square-o fa-lg"));
+        let del=$("<div></div>").addClass("delBtn").append($("<li></li>").addClass("fa fa-trash-o fa-lg"));
         let operation=$("<td></td>").append(edit).append(del);
         $("<tr></tr>").append(choose)
             .append(choose)
@@ -276,7 +276,7 @@ function build_devBatch(pagenum,pagesize) {
 function build_devBatch_table(tableData) {
     $("#batch_table tbody").empty();
     $.each(tableData,function (index,obj) {
-        let choose=$("<td><input type='checkbox'></td>");
+        let choose=$("<td><input type='checkbox' class='check_item'></td>");
         let batch=$("<td></td>").append(obj["batch"]);
         let text=$("<td></td>").append(obj["text"]);
         let levelCode=$("<td></td>").append(obj["levelCode"]);
@@ -284,8 +284,8 @@ function build_devBatch_table(tableData) {
         let audioMax=$("<td></td>").append(obj["audioMax"]);
         let modelId=$("<td></td>").append(obj["modelId"]);
         let deviceCount=$("<td></td>").append(obj["deviceCount"]);
-        let edit=$("<div></div>").css({"width":"28px","float":"left"}).append($("<li></li>").addClass("fa fa-pencil-square-o fa-lg"));
-        let del=$("<div></div>").css({"width":"28px","float":"left"}).append($("<li></li>").addClass("fa fa-trash-o fa-lg"));
+        let edit=$("<div></div>").addClass("editBtn").append($("<li></li>").addClass("fa fa-pencil-square-o fa-lg"));
+        let del=$("<div></div>").addClass("delBtn").append($("<li></li>").addClass("fa fa-trash-o fa-lg"));
         let operation=$("<td></td>").append(edit).append(del);
         $("<tr></tr>").append(choose)
             .append(batch)
@@ -324,7 +324,7 @@ function build_devFavorite() {
 function build_devFavorite_table(tableData) {
     $("#batch_table tbody").empty();
     $.each(tableData,function (index,obj) {
-        let choose=$("<td><input type='checkbox'></td>");
+        let choose=$("<td><input type='checkbox' class='check_item'></td>");
         let batch=$("<td></td>").append(obj["batch"]);
         let text=$("<td></td>").append(obj["text"]);
         let levelCode=$("<td></td>").append(obj["levelCode"]);
@@ -332,9 +332,8 @@ function build_devFavorite_table(tableData) {
         let audioMax=$("<td></td>").append(obj["audioMax"]);
         let modelId=$("<td></td>").append(obj["modelId"]);
         let deviceCount=$("<td></td>").append(obj["deviceCount"]);
-        let edit=$("<div></div>").css({"width":"28px","float":"left"}).append($("<li></li>").addClass("fa fa-pencil-square-o fa-lg"));
-        let del=$("<div></div>").css({"width":"28px","float":"left"}).append($("<li></li>").addClass("fa fa-trash-o fa-lg"));
-        let operation=$("<td></td>").append(edit).append(del);
+        let edit=$("<div></div>").addClass("editBtn").append($("<li></li>").addClass("fa fa-pencil-square-o fa-lg"));
+        let del=$("<div></div>").addClass("delBtn").append($("<li></li>").addClass("fa fa-trash-o fa-lg"));
         $("<tr></tr>").append(choose)
             .append(batch)
             .append(text)
@@ -348,3 +347,18 @@ function build_devFavorite_table(tableData) {
 
     });
 }
+let $div=$("div");
+$div.delegate(".editBtn","click",function (event) {
+    event.stopPropagation();
+    alert("编辑");
+});
+$div.delegate(".delBtn","click",function (event) {
+    event.stopPropagation();
+    alert("删除");
+});
+$div.delegate(".check_item","click",function (event) {
+    event.stopPropagation();
+    let flag=$(".check_item:checked").length===$(".check_item").length;
+    $(".allchoose").prop("checked",flag);
+});
+

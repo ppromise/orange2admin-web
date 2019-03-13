@@ -9,4 +9,3 @@ function load_main(page) {
     $(".main").remove();
     $(".xmain").load(page);
 }
-//ztt

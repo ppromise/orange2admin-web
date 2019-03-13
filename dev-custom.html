@@ -55,4 +55,10 @@
 		e.preventDefault();
 		$(this).closest(".panel").remove();
 	});
+	$(".allchoose").on("click",function () {
+		$(this).parents(".table").children("tbody").children("tr").children("td:eq(0)").children("input").prop("checked",$(this).prop("checked"));
+	});
+	$(".allchoose").on("click",function () {
+		$(":checkbox[class=check_item]").prop("checked",$(this).prop("checked"));
+	});
 </script>
