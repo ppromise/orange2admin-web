@@ -361,4 +361,4 @@ $div.delegate(".check_item","click",function (event) {
     let flag=$(".check_item:checked").length===$(".check_item").length;
     $(".allchoose").prop("checked",flag);
 });
-
+//
