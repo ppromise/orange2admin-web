@@ -10,27 +10,77 @@
 							<div class="panel panel-info">
 								<div class="panel-heading">
 									<div class="panel-heading-btn">
+										<a class="fa fa-refresh fa-lg"></a>
+										<a>&nbsp;</a>
 										<a id="collapse" class="fa fa-minus fa-lg"></a>
 										<a>&nbsp;</a>
 										<a id="close" class="fa fa-close fa-lg"></a>
-									</div>
+									</div>									
 									<h3 class="panel-title">设备列表</h3>
 								</div>
 								<div class="panel-body">
 									<table class="table table-hover" id="batch_table">
 										<thead>
+											<div class="row">
+												<div class="col-md-2">
+														显示页数
+													<select class="selectpicker btn btn-xs btn-defalut">
+														<option>1</option>
+														<option>10</option>
+														<option>100</option>
+														<option>1000</option>
+													</select>
+												</div>
+												<div class="col-md-2">
+													<select class="selectpicker btn btn-xs btn-defalut">
+														<option>表字段</option>
+														<option>10</option>
+														<option>100</option>
+														<option>1000</option>
+													</select>
+													<input type="button" class="btn btn-primary btn-xs" value="请筛选" placeholder="请筛选">
+												</div>
+												<div class="col-md-1">
+													
+																		<select class="selectpicker btn btn-xs btn-defalut">
+																				<option>表字段</option>
+																				<option>10</option>
+																				<option>100</option>
+																				<option>1000</option>
+																			</select>
+												</div>
+												<div class="col-md-3">
+													    <div class="input-group">
+																<input type="text" class="form-control" aria-label="...">
+																<div class="input-group-btn">
+																		<button type="submit" class="btn btn-primary "><span class="glyphicon glyphicon-search"></span></button>
+																  </ul>
+																</div><!-- /btn-group -->
+															  </div><!-- /input-group -->
+												</div>
+												<div class="col-md-1"></div>
+												<div class="col-md-1">
+														<input type="button" class="btn btn-primary btn-xs" placeholder="批量修改" value="批量修改">
+												</div>
+												<div class="col-md-1">
+														<input type="button" class="btn btn-danger btn-xs" placeholder="批量删除" value="批量删除">
+												</div>
+													
+													
+												
+											</div>	
 										<tr>
-											<th><input type="checkbox" class="allchoose">全选</th>											<th>批次号</th>
-											<th>每日推送文字</th>
-											<th>升级模式</th>
-											<th>播放专辑（6岁前）</th>
-											<th>播放专辑（6岁后）</th>
-											<th>关联设备类别</th>
-											<th>关联设备数</th>
-											<th>操作</th>
+											<th class="text-center"><input type="checkbox" class="allchoose">全选</th>											<th>批次号</th>
+											<th class="text-center">每日推送文字</th>
+											<th class="text-center">升级模式</th>
+											<th class="text-center">播放专辑（6岁前）</th>
+											<th class="text-center">播放专辑（6岁后）</th>
+											<th class="text-center">关联设备类别</th>
+											<th class="text-center">关联设备数</th>
+											<th class="text-center">操作</th>
 										</tr>
 										</thead>
-										<tbody>
+										<tbody class="text-center">
 										<tr>
 											<td><input type="checkbox"></td>
 											<td>aa</td>
@@ -38,8 +88,10 @@
 										</tr>
 										</tbody>
 									</table>
-										<div class="col-md-6" id="page_info"></div>
-										<div class="col-md-6" id="page_nav"></div>
+										
+										<div class="col-md-4" id="page_info" style="font-size:20px"></div>
+										<div class="col-md-4"></div>
+										<div class="col-md-4" id="page_nav"></div>
 								</div>
 							</div>
 							<!-- END TABLE HOVER -->
